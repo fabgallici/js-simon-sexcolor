@@ -10,7 +10,7 @@ function rndGen(max) {
   return intNUm;
 }
 
-//crea un array di numeri random non ripetuti (da 1 a rangeNum) di n° elementi arrSize
+//crea un array di numeri random non ripetuti (da 1 a rangeNum) di n° elementi arrSize, utilizzando la fn rndGen
 function rndArrGen(arrSize, rangeNum, randomGen) {
   var resultArr = [];
   var rndNum;
@@ -23,7 +23,7 @@ function rndArrGen(arrSize, rangeNum, randomGen) {
   return resultArr;
 }
 
-//confronta un array con un'altro: dice quanti e quali dei numeri da indovinare sono stati individuati;
+//confronta un array con gli elementi di un'altro: dice quanti e quali dei numeri da indovinare sono stati individuati;
 function compArr(arr, matchArr) {
   var resultArr = [];
   for (var i = 0; i < matchArr.length; i++) {
@@ -39,6 +39,7 @@ var questArr = rndArrGen(numQuest, 100, rndGen);
 console.log('question random numbers: ', questArr);
 
 alert('I numeri casuali sono: ' + questArr.join(' '));
+
 
 setTimeout(function() {
   var inputArr = [];
