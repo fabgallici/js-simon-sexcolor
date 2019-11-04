@@ -23,17 +23,34 @@ function rndArrGen(arrSize, rangeNum, randomGen) {
   return resultArr;
 }
 
+//confronta un array con un'altro: dice quanti e quali dei numeri da indovinare sono stati individuati;
+function compArr(arr, matchArr) {
+  var resultArr = [];
+  for (var i = 0; i < matchArr.length; i++) {
+    if (arr.includes(matchArr[i])) {
+      resultArr.push(matchArr[i]);
+    }
+  }
+  return resultArr;
+}
+
 const numQuest = 5;
 var questArr = rndArrGen(numQuest, 100, rndGen);
-console.log('question numbers: ', questArr);
+console.log('question random numbers: ', questArr);
 
 alert('I numeri casuali sono: ' + questArr.join(' '));
 
 setTimeout(function() {
-  var inputNums = [];
+  var inputArr = [];
   for (var i = 0; i < numQuest; i++) {
     inputNum = parseInt(prompt('Inserisci il ' + (i+1) + ' numero'));
-    inputNums.push(inputNum);
-  }
-  console.log(inputNums);
-}, 4000);
+    inputArr.push(inputNum);
+  } 
+  console.log('input arr ' + inputArr);
+  //call compArr
+  var compareArr = compArr(questArr, inputArr);
+  console.log('compare Arr ' , compareArr);
+
+  alert('Hai indovinato ' + compareArr.length + ' numeri: ' + compareArr.join(' '));
+}, 30000);
+
