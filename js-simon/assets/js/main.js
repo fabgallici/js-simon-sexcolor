@@ -23,7 +23,7 @@ function rndArrGen(arrSize, rangeNum, randomGen) {
   return resultArr;
 }
 
-//confronta un array con gli elementi di un'altro: dice quanti e quali dei numeri da indovinare sono stati individuati;
+//confronta un array con gli elementi di un'altro: ritorna array valori trovati
 function compArr(arr, matchArr) {
   var resultArr = [];
   for (var i = 0; i < matchArr.length; i++) {
