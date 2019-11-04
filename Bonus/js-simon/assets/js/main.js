@@ -34,24 +34,49 @@ function compArr(arr, matchArr) {
   return resultArr;
 }
 
+//acquisisce inpunt singolo e check se numero valido e compreso fra 1 e MaxNum
+function getInput() {
+  var inputNum;
+  while (isNaN(inputNum) || inputNum <= 0 || inputNum > 100) {
+    inputNum = parseInt(prompt('Inserisci un numero valido'));
+  }
+  return inputNum;
+}
+
+//acquisisce dati utente n° numQuestion, numeri non ripetuti tramite prompt e restituisce arr
+function getMultInput(numQ) {
+  var arr = [];
+  var num;
+  while (arr.length < numQ) {
+    num = getInput();
+    if (!arr.includes(num)) {
+      arr.push(num);
+      console.log('numero inserito correttamente');  //debug
+    } else {
+      alert('Numero gia inserito');
+    }
+  }
+  return arr;
+}
+
+//
+
+//inizio programma
 const numQuest = 5;
-var questArr = rndArrGen(numQuest, 100, rndGen);
+const maxNum = 100;
+var questArr = rndArrGen(numQuest, maxNum, rndGen);
 console.log('question random numbers: ', questArr);
 
 alert('I numeri casuali sono: ' + questArr.join(' '));
 
 
+
 setTimeout(function() {
-  var inputArr = [];
-  for (var i = 0; i < numQuest; i++) {
-    var inputNum = parseInt(prompt('Inserisci il ' + (i+1) + ' numero'));
-    inputArr.push(inputNum);
-  } 
+  var inputArr = getMultInput(numQuest);
   console.log('input arr ' + inputArr);
-  //call compArr
+  //confronto numeri utente con numeri random iniziali
   var compareArr = compArr(questArr, inputArr);
   console.log('compare Arr ' , compareArr);
 
   alert('Hai indovinato ' + compareArr.length + ' numeri: ' + compareArr.join(' '));
-}, 30000);
-
+}, 3000);  // timing ridotto per debug
