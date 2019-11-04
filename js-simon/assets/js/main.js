@@ -23,7 +23,17 @@ function rndArrGen(arrSize, rangeNum, randomGen) {
   return resultArr;
 }
 
-var questionNums = rndArrGen(5, 100, rndGen);
-console.log('question numbers: ', questionNums);
+const numQuest = 5;
+var questArr = rndArrGen(numQuest, 100, rndGen);
+console.log('question numbers: ', questArr);
 
-alert('I numeri casuali sono: ' + questionNums.join(' '));
+alert('I numeri casuali sono: ' + questArr.join(' '));
+
+setTimeout(function() {
+  var inputNums = [];
+  for (var i = 0; i < numQuest; i++) {
+    inputNum = parseInt(prompt('Inserisci il ' + (i+1) + ' numero'));
+    inputNums.push(inputNum);
+  }
+  console.log(inputNums);
+}, 4000);
