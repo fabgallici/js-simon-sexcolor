@@ -35,9 +35,9 @@ function compArr(arr, matchArr) {
 }
 
 //acquisisce inpunt singolo e check se numero valido e compreso fra 1 e MaxNum
-function getInput() {
+function getInput(max) {
   var inputNum;
-  while (isNaN(inputNum) || inputNum <= 0 || inputNum > 100) {
+  while (isNaN(inputNum) || inputNum <= 0 || inputNum > max) {
     inputNum = parseInt(prompt('Inserisci un numero valido'));
   }
   return inputNum;
@@ -48,7 +48,7 @@ function getMultInput(numQ) {
   var arr = [];
   var num;
   while (arr.length < numQ) {
-    num = getInput();
+    num = getInput(maxNum);
     if (!arr.includes(num)) {
       arr.push(num);
       console.log('numero inserito correttamente');  //debug
