@@ -59,24 +59,27 @@ function getMultInput(numQ) {
   return arr;
 }
 
-//
 
-//inizio programma
+
+//inizio esecuzione programma
 const numQuest = 5;
 const maxNum = 100;
-var questArr = rndArrGen(numQuest, maxNum, rndGen);
-console.log('question random numbers: ', questArr);
 
-alert('I numeri casuali sono: ' + questArr.join(' '));
+document.getElementById('init').addEventListener("click", function() {
+  var questArr = rndArrGen(numQuest, maxNum, rndGen);
+  console.log('question random numbers: ', questArr);
+  alert('I numeri casuali sono: ' + questArr.join(' '));
+
+  setTimeout(function () {
+    var inputArr = getMultInput(numQuest);
+    console.log('input arr ' + inputArr);
+    //confronto numeri utente con numeri random iniziali
+    var compareArr = compArr(questArr, inputArr);
+    console.log('compare Arr ', compareArr);
+
+    alert('Hai indovinato ' + compareArr.length + ' numeri: ' + compareArr.join(' '));
+  }, 3000);  // timing ridotto per debug
+})
 
 
 
-setTimeout(function() {
-  var inputArr = getMultInput(numQuest);
-  console.log('input arr ' + inputArr);
-  //confronto numeri utente con numeri random iniziali
-  var compareArr = compArr(questArr, inputArr);
-  console.log('compare Arr ' , compareArr);
-
-  alert('Hai indovinato ' + compareArr.length + ' numeri: ' + compareArr.join(' '));
-}, 3000);  // timing ridotto per debug
