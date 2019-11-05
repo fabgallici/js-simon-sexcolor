@@ -44,7 +44,7 @@ function getInput(max) {
 }
 
 //acquisisce dati utente n° numQuestion, numeri non ripetuti tramite prompt e restituisce arr
-function getMultInput(numQ) {
+function getMultInput(numQ) {   // si poteva provare a unificarla con rndArrGen e fare una funzione unica 
   var arr = [];
   var num;
   while (arr.length < numQ) {
